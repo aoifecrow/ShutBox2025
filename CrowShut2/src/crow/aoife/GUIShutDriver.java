@@ -26,6 +26,8 @@ public class GUIShutDriver extends Application {
 	public void start(Stage stage) throws Exception {
 		//set up main scene
 		VBox root = new VBox(10); 
+		
+		
 		root.setAlignment(Pos.CENTER);
 		Button[] tileBtns = new Button[9];
 		Label gameName = new Label("Shut The Box");
