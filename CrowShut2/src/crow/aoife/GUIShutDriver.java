@@ -51,6 +51,7 @@ public class GUIShutDriver extends Application {
 		//set up game over scene
 		VBox over = new VBox(10);
 		Label messageOver = new Label("OVER");
+		messageOver.setStyle("-fx-font-size: 40px");
 		over.setAlignment(Pos.CENTER);
 		over.getChildren().add(messageOver);
 		
