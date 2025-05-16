@@ -203,7 +203,9 @@ public class GUIShutDriver extends Application {
 		lockIn.setOnAction( e-> {
 			//determine the sum of the selected tiles
 			int sum = 0;
+			//count how many are down
 			int downCount = 0;
+			//sum tiles that are selected
 			for(Tile t: markers) {
 				if (t.isSelected()) {
 					sum +=t.getValue();
@@ -213,11 +215,13 @@ public class GUIShutDriver extends Application {
 				}
 				}
 			
+			//check if the selected numbers are correct
 			if (sum == Integer.valueOf(dieResult.getText())) {
 				System.out.println("Good Match");
 				//diable the buttons that are selected and change colour 
 				for(int i=0; i<markers.length; i++) {
 					if (markers[i].isSelected()) {
+						//mark tile as chosen
 						markers[i].deselect();
 						markers[i].shut();
 						tileBtns[i].setStyle("-fx-background-color:#ff99ff");
@@ -229,6 +233,7 @@ public class GUIShutDriver extends Application {
 				btnRoll.setDisable(false);
 				lockIn.setDisable(true);
 			}
+			//if the numbers sum to the incorrect 
 			else {
 				//Create alert
 				Alert alert = new Alert(AlertType.ERROR);
@@ -249,6 +254,8 @@ public class GUIShutDriver extends Application {
 				}
 			}
 		});
+		
+		//add everything to root
 		HBox controlButtons = new HBox(3);
 		controlButtons.setAlignment(Pos.CENTER);
 		controlButtons.getChildren().addAll(btnRoll, lockIn, roundOver);
